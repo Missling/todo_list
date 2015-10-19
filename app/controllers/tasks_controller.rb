@@ -1,7 +1,9 @@
+# require 'date'
+
 class TasksController < ApplicationController
   def index
     @task = Task.new
-    @tasks = Task.order(priority: :desc)
+    @tasks = Task.order('completed, priority DESC')
   end
 
   def create
@@ -10,6 +12,8 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to root_path
     else
+      @tasks = Task.order('completed, priority DESC')
+      #need to pass @tasks so the info can be available to the index
       render 'index'
     end
   end
@@ -17,6 +21,7 @@ class TasksController < ApplicationController
   def update
     @task = Task.find(params[:id])
     @task.completed = true
+    @task.date_completed = Time.now
     @task.save
 
     redirect_to root_path

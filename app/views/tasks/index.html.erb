@@ -1,8 +1,8 @@
 <h1>Tasks List</h1>
 
 <% if @task.errors.any? %>
+  <p>Task could not be saved:</p>
   <% @task.errors.full_messages.each do |msg| %>
-    <p>"Task could not be saved:"</p>
     <p><%= msg %></p>
   <% end %>
 <% end %> 
@@ -45,7 +45,9 @@
         <% end %>
         </td>
         <td>
-          <%= task.date_completed %>
+          <% if task.date_completed %>
+            <%= task.date_completed.strftime("%m/%d/%Y") %>
+          <% end %>
         </td>
         <td>
           <%= link_to 'Mark Complete', task_path(task), method: :put %>
