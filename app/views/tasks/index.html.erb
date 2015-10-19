@@ -1,0 +1,59 @@
+<h1>Tasks List</h1>
+
+<% if @task.errors.any? %>
+  <% @task.errors.full_messages.each do |msg| %>
+    <p>"Task could not be saved:"</p>
+    <p><%= msg %></p>
+  <% end %>
+<% end %> 
+
+<%= form_for @task do |f| %>
+  <p>
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :priority %>
+    <%= f.text_field :priority %>
+  </p>
+  <p>
+    <%= f.submit "Add Task" %>
+  </p>
+<% end %>
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td>Priority</td>
+    <td>Completed?</td>
+    <td>Date completed</td>
+  </tr>
+  <% if @tasks.any? %>
+    <% @tasks.each do |task| %>
+      <tr>
+        <td>
+          <%= task.description %>
+        </td>
+        <td>
+          <%= task.priority %>
+        </td>
+        <td>
+        <% if task.completed %>
+          <p>Yes</p>
+        <% else %>
+          <p>No</p>
+        <% end %>
+        </td>
+        <td>
+          <%= task.date_completed %>
+        </td>
+        <td>
+          <%= link_to 'Mark Complete', task_path(task), method: :put %>
+        </td>
+        <td>
+          <%= link_to 'Delete', task_path(task), method: :delete %>
+        </td>
+      </tr>  
+    <% end %>
+  <% end %>
+</table>
