@@ -11,9 +11,6 @@ class TasksController < ApplicationController
     description = message.first
     priority = message.last.to_i
 
-    puts "*" * 50
-    puts "priority: #{priority.inspect}"
-
     if description == 'Show'
       tasks = Task.where(completed: false)
 
