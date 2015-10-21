@@ -5,8 +5,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'tasks#index'
 
-  resources :tasks
-
+  resources :tasks do
+    # post :twilio_action, on: :collection => /tasks/twilio_action(.:format)
+    # post :twilio_action, on: :member => /tasks/:id/twilio_action(.:format), so on: :member is targeting a specific task
+    post :twilio_action, on: :collection
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
