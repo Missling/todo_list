@@ -9,7 +9,10 @@ class TasksController < ApplicationController
   def twilio_action
     message = params[:Body].split(",")
     description = message.first
-    priority = message.last
+    priority = message.last.to_i
+
+    puts "*" * 50
+    puts "priority: #{priority.inspect}"
 
     if description == 'Show'
       tasks = Task.where(completed: false)
