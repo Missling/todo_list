@@ -11,13 +11,20 @@ $(document).ready(function(){
     })
 
     ajaxRequest.done(function(response){
-      console.log(response)
+
+      var source = $('#entry-template').html()
+
+      var template = Handlebars.compile(source)
+
+      // var context = {description: response.description, priority: response.priority}
+
+      $('table').append(template(response))
     })
-    ajaxRequest.fail(function(response){
-      console.log('failure')
-    });
   });
 });
+
+
+
 
 // what happens with a redirect_to root_path with ajax?
 // redirect with ajax will result in a fail. since redirect directed back to root_path, it just returns the entire index page html as the response

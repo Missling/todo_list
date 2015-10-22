@@ -61,3 +61,14 @@
     <% end %>
   <% end %>
 </table>
+
+<script id="entry-template" type="text/x-handlebars-template">
+  <tr class='entry'>
+    <td>{{description}}</td>
+    <td>{{priority}}</td>
+    <td><p>No</p></td>
+    <td></td>
+    <td><a rel="nofollow" data-method="put" href="/tasks/{{id}}">Mark Complete</a></td>
+    <td><a rel="nofollow" data-method="delete" href="/tasks/{{id}}">Delete</a></td>
+  </tr>
+</script>
