@@ -38,7 +38,9 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to root_path
+
+      render json: @task
+      # redirect_to root_path
     else
       @tasks = Task.order('completed, priority DESC')
       #need to pass @tasks so the info can be available to the index
