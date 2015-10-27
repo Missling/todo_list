@@ -28,16 +28,18 @@ $(document).ready(function(){
   // $('.link_delete').on('click', function(event){
     event.preventDefault();
     
+    var $this = $(this) 
     var ajaxRequest = $.ajax({
       dataType: 'json',
-      url: $(this).attr('href'),
+      url: $this.attr('href'),
       type: "DELETE",
     });
 
     ajaxRequest.success(function(response){
-      console.log('sucess', response)
+      console.log($this)
+      $this.parents('tr').remove()
     }).fail(function(response){
-      console.log("failed", response)
+      console.log("failed")
     });
   });
 });
