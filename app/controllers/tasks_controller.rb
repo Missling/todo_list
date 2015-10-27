@@ -60,8 +60,10 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    # didn't have to render @task in json, so rendering blank
+    render json: {} 
 
-    redirect_to root_path
+    # redirect_to root_path
   end
 
   private

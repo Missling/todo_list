@@ -52,10 +52,10 @@
           <% end %>
         </td>
         <td>
-          <%= link_to 'Mark Complete', task_path(task), method: :put %>
+          <%= link_to 'Mark Complete', task_path(task), method: :put, class: 'link_mark'%>
         </td>
         <td>
-          <%= link_to 'Delete', task_path(task), method: :delete %>
+          <%= link_to 'Delete', task_path(task), class: 'link_delete' %>
         </td>
       </tr>  
     <% end %>
@@ -69,6 +69,6 @@
     <td><p>No</p></td>
     <td></td>
     <td><a rel="nofollow" data-method="put" href="/tasks/{{id}}">Mark Complete</a></td>
-    <td><a rel="nofollow" data-method="delete" href="/tasks/{{id}}">Delete</a></td>
+    <td><a rel="nofollow" href="/tasks/{{id}}" class="link_delete">Delete</a></td>
   </tr>
 </script>
