@@ -3,12 +3,13 @@ $(document).ready(function(){
   $('.new_task').on('submit', function(event){
     event.preventDefault();
 
+    var $this = $(this)
     var ajaxRequest = $.ajax({
       dataType: 'json',
       url: $(this).attr('action'),
       type: "POST",
-      data: $(this).serialize()
-    })
+      data: $this.serialize()
+    });
 
     ajaxRequest.done(function(response){
 
@@ -17,7 +18,7 @@ $(document).ready(function(){
       var template = Handlebars.compile(source)
 
       $('table').append(template(response))
-    })
+    });
   });
 
   // .delegate() - Attach a handler to one or more events for all elements that match the selector, now or in the future, based on a specific set of root elements.
@@ -36,7 +37,6 @@ $(document).ready(function(){
     });
 
     ajaxRequest.success(function(response){
-      console.log($this)
       $this.parents('tr').remove()
     }).fail(function(response){
       console.log("failed")

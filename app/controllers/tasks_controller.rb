@@ -40,7 +40,6 @@ class TasksController < ApplicationController
     if @task.save
 
       render json: @task
-      # redirect_to root_path
     else
       @tasks = Task.order('completed, priority DESC')
       #need to pass @tasks so the info can be available to the index
@@ -61,9 +60,8 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.destroy
     # didn't have to render @task in json, so rendering blank
-    render json: {} 
+    render json: { message: "Successfully removed task"} 
 
-    # redirect_to root_path
   end
 
   private
