@@ -12,12 +12,9 @@ $(document).ready(function(){
     });
 
     ajaxRequest.done(function(response){
-
-      var source = $('#entry-template').html()
-
-      var template = Handlebars.compile(source)
-
-      $('table').append(template(response))
+      var source = $('#entry-template').html();
+      var template = Handlebars.compile(source);
+      $('table').append(template(response));
     });
   });
 
