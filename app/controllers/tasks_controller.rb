@@ -11,9 +11,6 @@ class TasksController < ApplicationController
     description = message.first
     priority = message.last.to_i
 
-    puts "*" * 50
-    puts "priority: #{priority.inspect}"
-
     if description == 'Show'
       tasks = Task.where(completed: false)
 
@@ -41,7 +38,8 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
 
     if @task.save
-      redirect_to root_path
+
+      render json: @task
     else
       @tasks = Task.order('completed, priority DESC')
       #need to pass @tasks so the info can be available to the index
@@ -61,8 +59,9 @@ class TasksController < ApplicationController
   def destroy
     @task = Task.find(params[:id])
     @task.destroy
+    # didn't have to render @task in json, so rendering blank
+    render json: { message: "Successfully removed task"} 
 
-    redirect_to root_path
   end
 
   private

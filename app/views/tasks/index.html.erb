@@ -1,4 +1,15 @@
-<h1>Tasks List</h1>
+<!-- <body background="/assets/background_image.jpeg">  -->
+
+<div class="center">
+  <h1>To-Do List</h1>
+
+  <h3>Instruction for accessing To-Do List via Text Message</h3>
+  <p>- Text (510) 370-0889 to add new task.</p>
+  <p>- The text message must be formatted as follow: Description, Priority.</p>
+  <p>- Task will be assigned a default priority of 1 if no priority was provided.</p>
+  <p>- Text 'Show' to see all uncompleted tasks.</p>
+</div>
+
 
 <% if @task.errors.any? %>
   <p>Task could not be saved:</p>
@@ -52,12 +63,23 @@
           <% end %>
         </td>
         <td>
-          <%= link_to 'Mark Complete', task_path(task), method: :put %>
+          <%= link_to 'Mark Complete', task_path(task), method: :put, class: 'link_mark'%>
         </td>
         <td>
-          <%= link_to 'Delete', task_path(task), method: :delete %>
+          <%= link_to 'Delete', task_path(task), class: 'link_delete' %>
         </td>
       </tr>  
     <% end %>
   <% end %>
 </table>
+
+<script id="entry-template" type="text/x-handlebars-template">
+  <tr class='entry'>
+    <td>{{description}}</td>
+    <td>{{priority}}</td>
+    <td><p>No</p></td>
+    <td></td>
+    <td><a rel="nofollow" data-method="put" href="/tasks/{{id}}">Mark Complete</a></td>
+    <td><a rel="nofollow" href="/tasks/{{id}}" class="link_delete">Delete</a></td>
+  </tr>
+</script>
