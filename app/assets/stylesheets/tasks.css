@@ -24,17 +24,17 @@ td {
   margin-right: auto;
   margin-left: auto;
   padding-bottom: 8px;
- }
+}
 
- h1 {
+h1 {
   font-size: 45px;
   color: black;
   text-decoration: underline;
- }
+}
 
- h3 {
+h3 {
   font-size: 25px;
- }
+}
 
 .center {
   margin-left: auto;
@@ -47,12 +47,8 @@ td {
 }
 
 body {
-  background-image: url(https://images.unsplash.com/uploads/14127101912749510b8ed/82743738?ixlib=rb-0.3.5&q=80&fm=jpg&s=7d11b6771c0f2ff1a7f45d35fd4bb4e3);
-  /*background-image: url(/assets/background.jpeg);*/
+  background-image: url(background.jpeg);
   background-size: cover;
   background-repeat: no-repeat;
   font-family: monospace;
 }
-
-
-
