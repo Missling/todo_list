@@ -1,8 +1,16 @@
 table {
-  border: 2px solid black;
+  border: 2px solid white;
   border-collapse: collapse;
   margin-right: auto;
   margin-left: auto; 
+  background-color:rgba(1,5,19,0.58);
+  width: 80%;
+  height: 100%;
+  color: white;
+}
+
+a {
+  color: #49CEA5;
 }
 
 td {
@@ -15,4 +23,35 @@ td {
   width: 20%;
   margin-right: auto;
   margin-left: auto;
+  padding-bottom: 8px;
+ }
+
+ h1 {
+  font-size: 45px;
+  color: black;
+  text-decoration: underline;
+ }
+
+ h3 {
+  font-size: 25px;
+ }
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+  padding-bottom: 3px;
+  text-align: center;
+  background-color:rgba(31,56,150,0.35);
+  color: white;
 }
+
+body {
+  background-image: url(/assets/background.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: monospace;
+}
+
+
+
